@@ -1,0 +1,11 @@
+{
+  "name": "event-publisher-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-Stack Event Publisher Web App with React, Node.js, and Supabase",
+  "scripts": {
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build:client": "npm run build --prefix client"
+  }
+}
