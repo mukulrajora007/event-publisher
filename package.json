@@ -2,10 +2,17 @@
   "name": "event-publisher-workspace",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Full-Stack Event Publisher Web App with React, Node.js, and Supabase",
   "scripts": {
+    "build": "npm --prefix client run build",
     "dev:server": "npm run dev --prefix server",
-    "dev:client": "npm run dev --prefix client",
-    "build:client": "npm run build --prefix client"
+    "dev:client": "npm run dev --prefix client"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
   }
 }
