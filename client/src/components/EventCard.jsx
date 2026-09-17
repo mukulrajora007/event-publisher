@@ -18,11 +18,11 @@ export default function EventCard({ event, onSelect }) {
   const getLocationIcon = () => {
     switch (event.location_type) {
       case 'virtual':
-        return <Video className="w-3.5 h-3.5 text-sky-400" />;
+        return <Video className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />;
       case 'hybrid':
-        return <Laptop className="w-3.5 h-3.5 text-purple-400" />;
+        return <Laptop className="w-3.5 h-3.5 text-purple-400 flex-shrink-0" />;
       default:
-        return <MapPin className="w-3.5 h-3.5 text-rose-400" />;
+        return <MapPin className="w-3.5 h-3.5 text-rose-400 flex-shrink-0" />;
     }
   };
 
@@ -45,18 +45,18 @@ export default function EventCard({ event, onSelect }) {
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
 
         {/* Top Badges */}
-        <div className="absolute top-3 left-3 flex items-center gap-2">
-          <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase bg-slate-950/80 backdrop-blur-md text-indigo-300 border border-indigo-500/30">
+        <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 flex items-center gap-2">
+          <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-semibold tracking-wide uppercase bg-slate-950/80 backdrop-blur-md text-indigo-300 border border-indigo-500/30">
             {event.category}
           </span>
         </div>
 
         {/* Price Tag */}
-        <div className="absolute top-3 right-3">
-          <span className={`px-2.5 py-1 rounded-full text-xs font-bold backdrop-blur-md border ${
+        <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3">
+          <span className={`px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[11px] sm:text-xs font-bold backdrop-blur-md border ${
             isFree 
               ? 'bg-emerald-950/80 text-emerald-300 border-emerald-500/30' 
               : 'bg-indigo-950/80 text-indigo-200 border-indigo-500/30'
@@ -66,26 +66,26 @@ export default function EventCard({ event, onSelect }) {
         </div>
 
         {/* Format Badge */}
-        <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-950/85 backdrop-blur-md text-slate-200 border border-slate-800">
+        <div className="absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 flex items-center gap-1.5 px-2 sm:px-2.5 py-1 rounded-lg text-[11px] sm:text-xs font-medium bg-slate-950/85 backdrop-blur-md text-slate-200 border border-slate-800 max-w-[85%] truncate">
           {getLocationIcon()}
-          <span className="truncate max-w-[200px]">{getLocationLabel()}</span>
+          <span className="truncate">{getLocationLabel()}</span>
         </div>
       </div>
 
       {/* Content Body */}
-      <div className="flex-1 p-5 flex flex-col justify-between space-y-4">
-        <div className="space-y-2">
+      <div className="flex-1 p-4 sm:p-5 flex flex-col justify-between space-y-3.5 sm:space-y-4">
+        <div className="space-y-1.5 sm:space-y-2">
           {/* Date & Time */}
-          <div className="flex items-center gap-2 text-xs font-medium text-indigo-400">
-            <Calendar className="w-3.5 h-3.5" />
+          <div className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-medium text-indigo-400">
+            <Calendar className="w-3.5 h-3.5 flex-shrink-0" />
             <span>{formattedDate}</span>
             <span>•</span>
-            <Clock className="w-3.5 h-3.5" />
+            <Clock className="w-3.5 h-3.5 flex-shrink-0" />
             <span>{formattedTime}</span>
           </div>
 
           {/* Title */}
-          <h3 className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors line-clamp-1">
+          <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-indigo-300 transition-colors line-clamp-1 leading-snug">
             {event.title}
           </h3>
 
@@ -97,12 +97,12 @@ export default function EventCard({ event, onSelect }) {
 
         {/* Footer info: Organizer & Attendees */}
         <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
-          <div className="truncate max-w-[150px]">
+          <div className="truncate max-w-[130px] sm:max-w-[160px]">
             <span className="text-slate-500">By </span>
             <span className="text-slate-300 font-medium">{event.organizer_name}</span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
             <div className="flex items-center gap-1 text-slate-400" title="Registered Attendees">
               <Users className="w-3.5 h-3.5 text-slate-500" />
               <span>{event.attendees_count || 0}</span>

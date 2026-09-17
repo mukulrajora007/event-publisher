@@ -113,33 +113,33 @@ export default function App() {
       />
 
       {/* Event Discovery & Feed Container */}
-      <main ref={eventsSectionRef} className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main ref={eventsSectionRef} className="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-8 sm:py-12">
         
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight">
               Explore Upcoming Events
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1">
+            <p className="text-xs sm:text-sm text-slate-400 mt-0.5 sm:mt-1">
               Find technical conferences, developer summits, and creative gatherings
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 self-end sm:self-auto">
             <button
               onClick={loadEvents}
               title="Refresh event list"
-              className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition"
+              className="p-2 sm:p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition"
             >
-              <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+              <RefreshCw className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${loading ? 'animate-spin' : ''}`} />
             </button>
 
             <button
               onClick={() => setIsCreateOpen(true)}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition shadow-sm shadow-indigo-600/30"
+              className="flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition shadow-sm shadow-indigo-600/30 active:scale-95"
             >
-              <Plus className="w-4 h-4" />
+              <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>Publish Event</span>
             </button>
           </div>
@@ -158,7 +158,7 @@ export default function App() {
 
         {/* Event Cards Grid */}
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[1, 2, 3, 4, 5, 6].map(n => (
               <div key={n} className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4 space-y-4 animate-pulse">
                 <div className="aspect-[16/9] w-full bg-slate-800 rounded-xl" />
@@ -169,24 +169,24 @@ export default function App() {
             ))}
           </div>
         ) : events.length === 0 ? (
-          <div className="text-center py-20 px-4 rounded-3xl border border-dashed border-slate-800 bg-slate-900/30 space-y-4 max-w-lg mx-auto my-6">
-            <div className="w-14 h-14 mx-auto rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+          <div className="text-center py-16 sm:py-20 px-4 rounded-2xl sm:rounded-3xl border border-dashed border-slate-800 bg-slate-900/30 space-y-4 max-w-lg mx-auto my-6">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
               <Calendar className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-white">No Events Found</h3>
-            <p className="text-xs sm:text-sm text-slate-400">
-              We couldn't find any events matching your current filters. Try changing your search keywords or be the first to publish one!
+            <h3 className="text-base sm:text-lg font-bold text-white">No Events Found</h3>
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+              We couldn't find any events matching your current filters. Try changing your search keywords or publish a new event!
             </p>
             <button
               onClick={() => setIsCreateOpen(true)}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition shadow-md shadow-indigo-600/30"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition shadow-md shadow-indigo-600/30 active:scale-95"
             >
               <Plus className="w-4 h-4" />
               <span>Publish New Event</span>
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {events.map((event) => (
               <EventCard
                 key={event.id}
@@ -200,22 +200,22 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-slate-900 bg-slate-950 py-10 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-indigo-500" />
+      <footer className="border-t border-slate-900 bg-slate-950 py-8 sm:py-10 mt-12 sm:mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
+          <div className="flex items-center justify-center sm:justify-start gap-2">
+            <div className="w-2 h-2 rounded-full bg-indigo-500 flex-shrink-0" />
             <span className="text-slate-300 font-semibold">EventSphere</span>
-            <span>— Full-Stack Event Publisher Platform</span>
+            <span>— Full-Stack Event Publisher</span>
           </div>
 
-          <div className="flex items-center gap-6">
-            <span>Powered by React + Node.js + Supabase</span>
-            <span className="text-slate-400 hover:text-slate-200 cursor-pointer" onClick={() => setIsCreateOpen(true)}>
-              Publish An Event
-            </span>
-            <span className="text-slate-400 hover:text-slate-200 cursor-pointer" onClick={() => setIsManageOpen(true)}>
-              Publisher Dashboard
-            </span>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            <span>React + Node.js + Supabase</span>
+            <button className="text-slate-400 hover:text-slate-200 transition" onClick={() => setIsCreateOpen(true)}>
+              Publish Event
+            </button>
+            <button className="text-slate-400 hover:text-slate-200 transition" onClick={() => setIsManageOpen(true)}>
+              Dashboard
+            </button>
           </div>
         </div>
       </footer>
